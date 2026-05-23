@@ -22,16 +22,17 @@ pipeline {
             }
         }
     }
-}
-post {
-    success {
-        mail to: 'tu@gmail.com',
-             subject: "Build exitoso: ${env.JOB_NAME}",
-             body: "El pipeline ${env.JOB_NAME} #${env.BUILD_NUMBER} completó exitosamente."
-    }
-    failure {
-        mail to: 'tu@gmail.com',
-             subject: "Build fallido: ${env.JOB_NAME}",
-             body: "El pipeline ${env.JOB_NAME} #${env.BUILD_NUMBER} falló. Revisa el Console Output."
+
+    post {
+        success {
+            mail to: 'tu@gmail.com',
+                 subject: "Build exitoso: ${env.JOB_NAME}",
+                 body: "El pipeline ${env.JOB_NAME} #${env.BUILD_NUMBER} completó exitosamente."
+        }
+        failure {
+            mail to: 'tu@gmail.com',
+                 subject: "Build fallido: ${env.JOB_NAME}",
+                 body: "El pipeline ${env.JOB_NAME} #${env.BUILD_NUMBER} falló."
+        }
     }
 }
