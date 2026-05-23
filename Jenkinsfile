@@ -30,7 +30,7 @@ pipeline {
                  body: "El pipeline ${env.JOB_NAME} #${env.BUILD_NUMBER} completó exitosamente."
         }
         failure {
-            mail to: 'tu@gmail.com',
+            mail to: 'joaquin.lemus@galileo.edu',
                  subject: "Build fallido: ${env.JOB_NAME}",
                  body: "El pipeline ${env.JOB_NAME} #${env.BUILD_NUMBER} falló."
         }
